@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -8,12 +8,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index()
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    /**
+     * @Route("/form", name="form")
+     */
+    public function form()
+    {
+        return $this->render('form/form.html.twig', [
+
         ]);
     }
 }

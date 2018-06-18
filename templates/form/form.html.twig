@@ -1,0 +1,196 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/awesome-bootstrap-checkbox.css') }}">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block body %}
+    <div class="subsite-wrapp">
+        <div class="container">
+            <div class="contract-form">
+                <form method="POST">
+                    <div class="header-form">
+                        <h5>Wypełnij formularz zlecenia jako...</h5>
+                        <div class="checkboxes">
+                            <div class="radio radio-info radio-inline">
+                                <input type="radio" id="inlineRadio1" value="option1" name="radioInline">
+                                <label for="inlineRadio1"> Osoba prywatna </label>
+                            </div>
+                            <div class="radio radio-inline">
+                                <input type="radio" id="inlineRadio2" value="option2" name="radioInline" checked>
+                                <label for="inlineRadio2"> Firma </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row2">
+                        <div class="form-row">
+                            <div class="col-2-2">
+                                <h3>Dane do faktury</h3>
+
+                                <div class="form-group">
+                                    <h4>Imię i nazwisko <span>*</span></h4>
+                                    <input type="text" class="form-control" id="fullname" placeholder="Jan Kowalski">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-2">
+                                        <h4>Telefon <span>*</span></h4>
+                                        <input type="text" class="form-control" id="place2" placeholder="+48 656 858 458">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <h4>Adres e-mail</h4>
+                                        <input type="text" class="form-control" id="place2" placeholder="adres@jankowaski.pl">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-2-2">
+                                <h3 class="private-no">Dane firmy</h3>
+                                <h3 class="private-yes">Dane adresowe</h3>
+                                <div>
+                                    <div class="form-group private-no">
+                                        <h4>Nazwa firmy <span>*</span></h4>
+                                        <label class="error">Nieprawidłowe dane</label>
+                                        <input type="text" class="form-control error" id="name" placeholder="Euro-Gaz Sp. z o.o.">
+                                    </div>
+                                    <div class="form-group  private-no">
+                                        <h4>NIP <span>*</span></h4>
+                                        <input type="text" class="form-control" id="nip" placeholder="959-160-83-52">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-2">
+                                        <h4>Ulica <span>*</span></h4>
+                                        <input type="text" class="form-control" id="address2" placeholder="ul. Przemysłowa">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <h4>Nr domu <span>*</span></h4>
+                                        <input type="text" class="form-control" id="address2" placeholder="25">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-2">
+                                        <h4>Kod pocztowy <span>*</span></h4>
+                                        <input type="text" class="form-control" id="code2" placeholder="25-312">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <h4>Miejscowość <span>*</span></h4>
+                                        <input type="text" class="form-control" id="place2" placeholder="Kielce">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-2-2">
+                                <h3>Miejsce wykonania zlecenia</h3>
+                                <div>
+                                    <div class="row">
+                                        <div class="form-group col-2">
+                                            <h4>Ulica <span>*</span></h4>
+                                            <input type="text" class="form-control" id="address2" placeholder="ul. Przemysłowa">
+                                        </div>
+                                        <div class="form-group col-2">
+                                            <h4>Nr domu <span>*</span></h4>
+                                            <input type="text" class="form-control" id="address2" placeholder="25">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-2">
+                                            <h4>Kod pocztowy <span>*</span></h4>
+                                            <input type="text" class="form-control" id="code2" placeholder="25-312">
+                                        </div>
+                                        <div class="form-group col-2">
+                                            <h4>Miejscowość <span>*</span></h4>
+                                            <input type="text" class="form-control" id="place2" placeholder="Kielce">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h4>Nr działki <span>*</span></h4>
+                                        <input type="text" class="form-control" id="code2" placeholder="J56458">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-2-2">
+                                <h3>Informacje o zleceniu</h3>
+                                <div class="form-group">
+                                    <h4>Rodzaj zlecenia <span>*</span></h4>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Wybierz rodzaj zlecenia</option>
+                                        <option value="pakowanie, transport i utylizacja płyt azbestowych">pakowanie, transport i utylizacja płyt azbestowych</option>
+                                        <option value="przygotowanie eternitu do transportu">przygotowanie eternitu do transportu</option>
+                                        <option value="transport odpadów niebezpiecznych">transport odpadów niebezpiecznych</option>
+                                        <option value="utylizacja azbestu na składowisku odpadów">utylizacja azbestu na składowisku odpadów</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <h4>Usługi dodatkowe <span>*</span></h4>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Usługi dodatkowe</option>
+                                        <option value="pakowanie, transport i utylizacja płyt azbestowych">pakowanie, transport i utylizacja płyt azbestowych</option>
+                                        <option value="przygotowanie eternitu do transportu">przygotowanie eternitu do transportu</option>
+                                        <option value="transport odpadów niebezpiecznych">transport odpadów niebezpiecznych</option>
+                                        <option value="utylizacja azbestu na składowisku odpadów">utylizacja azbestu na składowisku odpadów</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <h4>Przyblizony termin inwestycji <span>*</span></h4>
+                                    <input type="text" class="form-control" id="amount" placeholder="600">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-row no-after">
+                            <div class="form-group col-2-2" style="width:100%">
+                                <h4>Uwagi do zlecenia <span>*</span></h4>
+                                <textarea class="form-control"  placeholder=""></textarea>
+                                <div class="form-bottom radio-btns">
+                                    <p class="file-load--">Dodaj plik np: mapka działki (JPG,PDF)</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-bottom radio-btns">
+                        <div>
+                            <div class="checkbox">
+                                <input id="checkbox3" type="checkbox" name="radioInline3">
+                                <label for="checkbox3"> Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.  </label>
+                            </div>
+                            <div class="checkbox">
+                                <input id="checkbox4" type="checkbox" name="radioInline4">
+                                <label for="checkbox4"> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.   Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-bottom">
+                        <div>
+                            <p>Przejdź do</p>
+                            <button type="submit" class="btn">Podsumowania</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('asset/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('asset/js/addons.js') }}"></script>
+{% endblock %}

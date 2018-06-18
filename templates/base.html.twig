@@ -3,10 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block css %}{% endblock %}
     </head>
     <body>
+        {% block nav %}
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="{{ path('login') }}">Zaloguj się</a></li>
+                        <li><a href="{{ path('register') }}">Zarejestruj się</a></li>
+                    </ul>
+                </nav>
+            </header>
+        {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block js %}{% endblock %}
     </body>
 </html>
