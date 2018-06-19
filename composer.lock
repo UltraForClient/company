@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f78ad6c3fab5fe920340e57f87daaf36",
+    "content-hash": "d364d02a69077aad3015258c3daf42ef",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1153,6 +1153,57 @@
                 "sql"
             ],
             "time": "2014-01-12T16:20:24+00:00"
+        },
+        {
+            "name": "kevinlebrun/password.php",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinlebrun/password.php.git",
+                "reference": "fda08da3662ba3ef301d83c4e66f8418574c5f6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinlebrun/password.php/zipball/fda08da3662ba3ef301d83c4e66f8418574c5f6a",
+                "reference": "fda08da3662ba3ef301d83c4e66f8418574c5f6a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Password": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Le Brun",
+                    "email": "lebrun.k@gmail.com",
+                    "homepage": "http://kevinlebrun.fr",
+                    "role": "developer"
+                }
+            ],
+            "description": "Helpers for password generation and validation",
+            "homepage": "https://github.com/kevinlebrun/password.php",
+            "keywords": [
+                "generate",
+                "helper",
+                "password",
+                "util",
+                "validate"
+            ],
+            "time": "2014-03-31T12:49:40+00:00"
         },
         {
             "name": "monolog/monolog",

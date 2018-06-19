@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/awesome-bootstrap-checkbox.css') }}">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block body %}
+     <div class="subsite-wrapp contract-form">
+     	<div class="container">
+        	<p class="alert alert-success">
+                Wysłano wiadomość email na adres {{ email }} z danymi logowania do konta.
+                <br>
+                Wkrótce przyjdzie email z wyceną zlecenia.
+                <br>
+                Pozdrawiamy zws.com.pl
+            </p>
+            <a href="{{ path('login') }}" class="btn btn-primary">Przejdź do logowania</a>
+        </div>
+     </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('asset/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('asset/js/addons.js') }}"></script>
+{% endblock %}

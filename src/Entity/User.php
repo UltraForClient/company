@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +20,7 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(name="username", type="string", length=255)
+     * @ORM\Column(name="username", type="string", length=255, nullable=true)
      */
     private $username;
 
@@ -39,9 +40,44 @@ class User implements UserInterface, \Serializable
     private $surname;
 
     /**
-     * @Assert\Length(max=4096)
+     * @ORM\Column(name="phone", type="string", length=255)
      */
-    private $plainPassword;
+    private $phone;
+
+    /**
+     * @ORM\Column(name="mode", type="string", length=16)
+     */
+    private $mode;
+
+    /**
+     * @ORM\Column(name="company_name", type="string", length=255, nullable=true)
+     */
+    private $companyName;
+
+    /**
+     * @ORM\Column(name="nip", type="string", length=255, nullable=true)
+     */
+    private $NIP;
+
+    /**
+     * @ORM\Column(name="street", type="string", length=255)
+     */
+    private $street;
+
+    /**
+     * @ORM\Column(name="house_number", type="string", length=32)
+     */
+    private $houseNumber;
+
+    /**
+     * @ORM\Column(name="post_code", type="string", length=64)
+     */
+    private $postCode;
+
+    /**
+     * @ORM\Column(name="place", type="string", length=64)
+     */
+    private $place;
 
     /**
      * @ORM\Column(name="password", type="string", length=64)
@@ -71,6 +107,16 @@ class User implements UserInterface, \Serializable
     public function __construct()
     {
         $this->roles = json_encode(['ROLE_USER']);
+        $this->publishedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updatedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -118,14 +164,84 @@ class User implements UserInterface, \Serializable
         $this->surname = $surname;
     }
 
-    public function getPlainPassword(): ?string
+    public function getPhone(): ?string
     {
-        return $this->plainPassword;
+        return $this->phone;
     }
 
-    public function setPlainPassword(string $plainPassword): void
+    public function setPhone(string $phone): void
     {
-        $this->plainPassword = $plainPassword;
+        $this->phone = $phone;
+    }
+
+    public function getMode(): ?string
+    {
+        return $this->mode;
+    }
+
+    public function setMode(string $mode): void
+    {
+        $this->mode = $mode;
+    }
+
+    public function setCompanyName(string $companyName): void
+    {
+        $this->companyName = $companyName;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    public function setNIP(string $NIP): void
+    {
+        $this->NIP = $NIP;
+    }
+
+    public function getNIP(): ?string
+    {
+        return $this->NIP;
+    }
+
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    public function setStreet(string $street): void
+    {
+        $this->street = $street;
+    }
+
+    public function getHouseNumber(): ?string
+    {
+        return $this->houseNumber;
+    }
+
+    public function setHouseNumber(string $houseNumber): void
+    {
+        $this->houseNumber = $houseNumber;
+    }
+
+    public function getPostCode(): ?string
+    {
+        return $this->postCode;
+    }
+
+    public function setPostCode(string $postCode): void
+    {
+        $this->postCode = $postCode;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(string $place): void
+    {
+        $this->place = $place;
     }
 
     public function getPassword(): ?string

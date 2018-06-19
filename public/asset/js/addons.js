@@ -2,6 +2,7 @@ jQuery(document).ready(function ($) {
 
     $('.contract-form input, .contract-form textarea').each(function () {
         var $this = $(this);
+
         $this.data('placeholder', $this.attr('placeholder'))
             .focus(function () {
                 $this.removeAttr('placeholder');
