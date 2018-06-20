@@ -54,8 +54,6 @@ class HomeController extends Controller
 
             $user = $em->getRepository(User::class)->findOneBy(['email' => $data['user']['email']]);
 
-            dump($user);
-
             $user = new User();
             $task = new Task();
 

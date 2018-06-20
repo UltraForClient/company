@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block css %}
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <link rel="stylesheet" href="{{ asset('asset/css/vendors.bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/style.bundle.css') }}">
+{% endblock %}
+
 {% block body %}
     {% if error %}
         <div class="error error-login">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

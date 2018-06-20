@@ -1,0 +1,62 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <form method="POST">
+        <div class="header-form">
+            <h5>Formularz wyceny</h5>
+        </div>
+        <div class="m-portlet__body">
+            <div class="form-group m-form__group row">
+                <div class="col-10 ml-auto">
+                    <h3 class="m-form__section">
+                        Informacje o zleceniu
+                    </h3>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label class="col-2 col-form-label">
+                    Adres
+                </label>
+                <div class="col-7">
+                    <p class="form-control m-input">{{ task.postCode }} {{ task.place }} {{ task.street }} {{ task.houseNumber }}</p>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label class="col-2 col-form-label">
+                    Rodzaj zlecenia:
+                </label>
+                <div class="col-7">
+                    <p class="form-control m-input">{{ task.task }}</p>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label class="col-2 col-form-label">
+                    Uwagi clienta:
+                </label>
+                <div class="col-7">
+                    <p class="form-control m-input" style="height: 100%">{{ task.comments }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <h4>Cena w PLN<span>*</span></h4>
+                <input type="number" class="form-control" id="price" name="price" placeholder="458" required>
+            </div>
+            <div class="form-group col-6">
+                <h4>Przewidywany czas rozpoczęcia <span>*</span></h4>
+                <input type="date" class="form-control" id="date" name="date" placeholder="25" required>
+            </div>
+        </div>
+        <div class="form-row no-after">
+            <div class="form-group col-6-2" style="width:100%">
+                <h4>Uwagi do zlecenia <span>*</span></h4>
+                <textarea class="form-control" placeholder="" name="comments" required></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="close-modal">Zamknij</button>
+            <button type="submit" class="btn btn-primary">Wyślij wycene</button>
+        </div>
+    </form>
+{% endblock %}

@@ -2077,7 +2077,10 @@ input[type="button"].btn-block {
   opacity: 0;
   transition: opacity 0.15s linear; }
   .fade.show {
-    opacity: 1; }
+    opacity: 1;
+    display: block;
+    padding-right: 15px;
+  }
 
 .collapse {
   display: none; }
@@ -17049,8 +17052,7 @@ code {
         padding-top: 0.45rem;
         padding-bottom: 0.9rem; } }
   .m-portlet .m-form.m-form--fit > .m-portlet__body {
-    padding-left: 0px;
-    padding-right: 0px; }
+  padding: 10px}
   .m-portlet.m-portlet--sortable .m-portlet__head {
     cursor: move; }
   .m-portlet.m-portlet--sortable-empty {
@@ -29641,9 +29643,10 @@ select.m-select2 {
             border-radius: 40px;
             border: none;
             padding: 1.5rem 1.5rem;
-            margin-top: 1.5rem; }
-            .m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__form .m-form__group .form-control.m-login__form-input--last {
-              border: 0; }
+            margin-top: 1.5rem;
+            border: 1px solid;
+          }
+
           .m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__form .m-form__group.has-danger .form-control-feedback {
             font-weight: 400;
             font-size: 0.85rem;

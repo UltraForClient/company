@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TaskRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Task
 {
@@ -42,6 +43,16 @@ class Task
      * @ORM\Column(name="task", type="string", length=64)
      */
     private $task;
+
+    /**
+     * @ORM\Column(name="comments", type="text")
+     */
+    private $comments;
+
+    /**
+     * @ORM\Column(name="valuation", type="string", length=64, nullable=true)
+     */
+    private $valuation;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
@@ -134,6 +145,26 @@ class Task
         $this->task = $task;
     }
 
+    public function setComments(string $comments): void
+    {
+        $this->comments = $comments;
+    }
+
+    public function getComments(): ?string
+    {
+        return $this->comments;
+    }
+
+    public function getValuation()
+    {
+        return $this->valuation;
+    }
+
+    public function setValuation($valuation): void
+    {
+        $this->valuation = $valuation;
+    }
+
     public function getUser(): ?User
     {
         return $this->user;
@@ -144,17 +175,17 @@ class Task
         $this->user = $user;
     }
 
-    public function getPublishedAt(): ?\DateTimeInterface
+    public function getPublishedAt(): ?\DateTime
     {
         return $this->publishedAt;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    public function getDeletedAt(): ?\DateTimeInterface
+    public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }

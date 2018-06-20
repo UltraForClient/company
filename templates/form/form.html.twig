@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/awesome-bootstrap-checkbox.css') }}">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext'
-          rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 {% endblock %}
 
 {% block body %}
@@ -132,56 +130,35 @@
                                         <option value="wyposażenie studni">wyposażenie studni</option>
                                     </select>
                                 </div>
-                                {#<div class="form-group">#}
-                                    {#<h4>Usługi dodatkowe <span>*</span></h4>#}
-                                    {#<select class="form-control" required>#}
-                                        {#<option value="" disabled selected>Usługi dodatkowe</option>#}
-                                        {#<option value="pakowanie, transport i utylizacja płyt azbestowych">pakowanie,#}
-                                            {#transport i utylizacja płyt azbestowych#}
-                                        {#</option>#}
-                                        {#<option value="przygotowanie eternitu do transportu">przygotowanie eternitu do#}
-                                            {#transportu#}
-                                        {#</option>#}
-                                        {#<option value="transport odpadów niebezpiecznych">transport odpadów#}
-                                            {#niebezpiecznych#}
-                                        {#</option>#}
-                                        {#<option value="utylizacja azbestu na składowisku odpadów">utylizacja azbestu na#}
-                                            {#składowisku odpadów#}
-                                        {#</option>#}
-                                    {#</select>#}
-                                {#</div>#}
                             </div>
                         </div>
                         <div class="form-row no-after">
                             <div class="form-group col-2-2" style="width:100%">
                                 <h4>Uwagi do zlecenia <span>*</span></h4>
-                                <textarea class="form-control" placeholder="" required></textarea>
-                                <div class="form-bottom radio-btns">
-                                    <p class="file-load--">Dodaj plik np: mapka działki (JPG,PDF)</p>
-                                </div>
+                                <textarea class="form-control" name="comments" placeholder="" required></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="form-bottom radio-btns">
-                        <div>
-                            <div class="checkbox">
-                                <input id="checkbox3" type="checkbox" name="radioInline3">
-                                <label for="checkbox3"> Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz
-                                    w przemyśle poligraficznym. </label>
-                            </div>
-                            <div class="checkbox">
-                                <input id="checkbox4" type="checkbox" name="radioInline4">
-                                <label for="checkbox4"> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza
-                                    do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany
-                                    przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w
-                                    latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem
-                                    Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem
-                                    przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus
-                                    PageMaker</label>
-                            </div>
-                        </div>
+                    {#<div class="form-bottom radio-btns">#}
+                        {#<div>#}
+                            {#<div class="checkbox">#}
+                                {#<input id="checkbox3" type="checkbox" name="radioInline3">#}
+                                {#<label for="checkbox3"> Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz#}
+                                    {#w przemyśle poligraficznym. </label>#}
+                            {#</div>#}
+                            {#<div class="checkbox">#}
+                                {#<input id="checkbox4" type="checkbox" name="radioInline4">#}
+                                {#<label for="checkbox4"> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza#}
+                                    {#do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany#}
+                                    {#przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w#}
+                                    {#latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem#}
+                                    {#Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem#}
+                                    {#przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus#}
+                                    {#PageMaker</label>#}
+                            {#</div>#}
+                        {#</div>#}
 
-                    </div>
+                    {#</div>#}
 
                     <div class="form-bottom">
                         <div>

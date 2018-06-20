@@ -1,0 +1,34 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Miejscowość</th>
+            <th>Kod pocztowy</th>
+            <th>Ulica</th>
+            <th>Nr Domu</th>
+            <th>Wyceniono</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, task in tasks %}
+            <tr {% if task.valuation %}class="table-success"{% endif %}>
+                <th scope="row">{{ key + 1 }}</th>
+                <td>{{ task.place }}</td>
+                <td>{{ task.postCode }}</td>
+                <td>{{ task.street }}</td>
+                <td>{{ task.houseNumber }}</td>
+                <td>{% if task.valuation %} {{ task.valuation }}zł {% else %} Nie dokonano jeszcze wyceny {% endif %}</td>
+                <td>
+                    {% if not task.valuation %}<a class="btn btn-success" href="{{ path('valuation', {id: task.user.id}) }}">Dokona wyceny</a>{% endif %}
+                    <a class="btn btn-default">Pokaż użytkownika</a>
+                    <a href="{{ path('remove_task', {id: task.id}) }}" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -3,37 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block css %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
+
+        {% block css %}
+
+        {% endblock %}
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-        <script>
-            WebFont.load({
-                google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
-                active: function() {
-                    sessionStorage.fonts = true;
-                }
-            });
-        </script>
-        <link rel="stylesheet" href="{{ asset('asset/css/vendors.bundle.css') }}">
-        <link rel="stylesheet" href="{{ asset('asset/css/style.bundle.css') }}">
     </head>
-    <body>
+    <body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+        <div class="m-grid m-grid--hor m-grid--root m-page">
         {% block nav %}
             <header>
                 <nav>
-                    <ul>
-                        <li><a href="{{ path('form') }}">Formularz</a></li>
-                        <li><a href="{{ path('login') }}">Zaloguj się</a></li>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="{{ path('form') }}" class="nav-link">Formularz</a>
+                        </li>
+                        {% if not app.user %}
+                        <li class="nav-item">
+                            <a href="{{ path('login') }}" class="nav-link">Zaloguj się</a>
+                        </li>
+                        {% elseif is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a href="{{ path('admin') }}" class="nav-link">Panel admina</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a href="{{ path('panel') }}" class="nav-link">Panel klienta</a>
+                        </li>
+                        {% endif %}
+
                     </ul>
                 </nav>
             </header>
         {% endblock %}
         {% block body %}{% endblock %}
-
-        <scritp src="{{ asset('asset/js/vendors.bundle.js') }}"></scritp>
-        <scritp src="{{ asset('asset/js/scripts.bundle.js') }}"></scritp>
-
-        {% block js %}{% endblock %}
+        </div>
+        {% block js %}
+        {% endblock %}
     </body>
 </html>

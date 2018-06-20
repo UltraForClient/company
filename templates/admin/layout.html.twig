@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <link rel="stylesheet" href="{{ asset('asset/css/vendors.bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/style.bundle.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+        <div class="m-grid__item m-grid__item--fluid m-wrapper">
+            <div class="m-subheader ">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="m-subheader__title ">
+                            Panel administrator
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="m-content">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="m-portlet m-portlet--full-height  ">
+                            <div class="m-portlet__body">
+                                <div class="m-card-profile">
+                                    <div class="m-card-profile__title m--hide">
+                                        Mój profil
+                                    </div>
+                                    <div class="m-card-profile__details">
+                                        <span class="m-card-profile__name">Admin</span>
+                                        <a href="" class="m-card-profile__email m-link">{{ app.user.email }}</a>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <a class="btn btn-success" href="{{ path('change_password') }}">
+                                        Zmień hasło
+                                    </a>
+                                </p>
+                                <p class="text-center">
+                                    <a class="btn btn-default" href="{{ path('logout') }}">
+                                        Wyloguj
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="m-portlet m-portlet--full-height m-portlet--tabs">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-tools">
+                                    <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary">
+                                        <li class="nav-item m-tabs__item">
+                                            <a class="nav-link m-tabs__link" href="{{ path('panel') }}">
+                                                Lista zleceń
+                                            </a>
+                                        </li>
+                                        <li class="nav-item m-tabs__item">
+                                            <a class="nav-link m-tabs__link" href="{{ path('task') }}">
+                                                Lista klientów
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="m_user_profile_tab_1">
+                                    <div class="m-form m-form--fit m-form--label-align-right">
+                                        <div class="m-portlet__body">
+                                            {% block content %}{% endblock %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <scritp src="{{ asset('asset/js/vendors.bundle.js') }}"></scritp>
+    <scritp src="{{ asset('asset/js/scripts.bundle.js') }}"></scritp>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

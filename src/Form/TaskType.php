@@ -17,6 +17,7 @@ class TaskType extends AbstractType
             ->add('postCode')
             ->add('place')
             ->add('task')
+            ->add('comments')
         ;
     }
 

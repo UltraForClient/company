@@ -14,3 +14,10 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+
+    kernel.listener.doctrine:
+        class: 'App\Listener\DoctrineListener'
+        public: false
+        tags:
+            - { name: doctrine.event_listener, event: preFlush, method: preFlush }

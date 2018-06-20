@@ -1,0 +1,67 @@
+{% extends 'panel/panel.html.twig' %}
+
+{% block content %}
+<div class="tab-content">
+    <div class="tab-pane active" id="m_user_profile_tab_1">
+        <div class="m-form m-form--fit m-form--label-align-right">
+            <div class="m-portlet__body">
+                <div class="form-group m-form__group row">
+                    <div class="col-10 ml-auto">
+                        <h3 class="m-form__section">
+                            Dane osobiste
+                        </h3>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label">
+                        Imię i nazwisko:
+                    </label>
+                    <div class="col-7">
+                        <p class="form-control m-input">{{ app.user.name }} {{ app.user.surname }}</p>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label">
+                        Telefon:
+                    </label>
+                    <div class="col-7">
+                        <p class="form-control m-input">{{ app.user.phone }}</p>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label">
+                        Kod pocztowe:
+                    </label>
+                    <div class="col-7">
+                        <p class="form-control m-input">{{ app.user.postCode }}</p>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label">
+                        Miejscowość:
+                    </label>
+                    <div class="col-7">
+                        <p class="form-control m-input">{{ app.user.place }}</p>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label">
+                        Ulica:
+                    </label>
+                    <div class="col-7">
+                        <p class="form-control m-input">{{ app.user.street }}</p>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-2 col-form-label">
+                        Numer domu:
+                    </label>
+                    <div class="col-7">
+                        <p class="form-control m-input">{{ app.user.houseNumber }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

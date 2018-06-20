@@ -3981,6 +3981,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
+  display: flex;
 }
 .nav > li {
   position: relative;
