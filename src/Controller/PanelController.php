@@ -85,6 +85,36 @@ class PanelController extends Controller
     }
 
     /**
+     * @Route("/panel/task/edit/{id}", name="task_edit")
+     */
+    public function edit(Task $task, Request $request): Response
+    {
+        $req = $request->request->all();
+
+        if(count($req) > 0) {
+            $formTask = $this->createForm(TaskType::class, $task);
+
+            $formTask->submit($req);
+
+
+            $task->setUser($this->getUser());
+
+            $this->em->persist($task);
+
+            $this->em->flush();
+
+
+            return $this->redirectToRoute('tasks');
+        }
+
+
+        return $this->render('panel/edit.html.twig', [
+            'task' => $task,
+            'tasks' => null
+        ]);
+    }
+
+    /**
      * @Route("/panel/change-password", name="change_password")
      */
     public function changePassword(Request $request): Response

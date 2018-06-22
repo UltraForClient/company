@@ -25,6 +25,7 @@
                     <td>{% if task.valuation %} {{ task.valuation }}zł {% else %} Nie dokonano jeszcze wyceny {% endif %}</td>
                     <td>
                         <a href="{{ path('task_one', {id: task.id}) }}" class="btn btn-default">Pokaż szczegóły</a>
+                        {% if not task.valuation %} <a href="{{ path('task_edit', {id: task.id}) }}" class="btn btn-secondary">Edytuj</a> {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

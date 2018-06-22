@@ -1,0 +1,69 @@
+{% extends 'panel/panel.html.twig' %}
+
+{% block content %}
+<div class="tab-content">
+    <div class="tab-pane active" id="m_user_profile_tab_1">
+        <div class="m-form m-form--fit m-form--label-align-right">
+            <div class="m-portlet__body">
+                <div class="form-group m-form__group row">
+                    <div class="col-10 ml-auto">
+                        <h3 class="m-form__section">
+                            Edytuj zlecenie
+                        </h3>
+                    </div>
+                </div>
+                <form method="POST">
+                    <div class="header-form">
+                        <h5>Formularz zlecenia</h5>
+                    </div>
+                    <h3>Miejsce wykonania zlecenia</h3>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <h4>Ulica <span>*</span></h4>
+                            <input type="text" class="form-control" id="street" name="street" placeholder="ul. Przemysłowa" value="{{ task.street }}" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <h4>Nr domu <span>*</span></h4>
+                            <input type="text" class="form-control" id="houseNumber" name="houseNumber" placeholder="25" value="{{ task.houseNumber }}"  required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <h4>Kod pocztowy <span>*</span></h4>
+                            <input type="text" class="form-control" id="postCode" name="postCode" placeholder="25-312" value="{{ task.postCode }}"  required>
+                        </div>
+                        <div class="form-group col-6">
+                            <h4>Miejscowość <span>*</span></h4>
+                            <input type="text" class="form-control" id="place" name="place" placeholder="Kielce" value="{{ task.place }}" required>
+                        </div>
+                    </div>
+                    <h3>Informacje o zleceniu</h3>
+                    <div class="form-group">
+                        <h4>Rodzaj zlecenia <span>*</span></h4>
+                        <select class="form-control" name="task" required>
+                            <option value="{{ task.task }}" selected>{{ task.task }}</option>
+                            <option value="studnia głębinowa">studnia głębinowa</option>
+                            <option value="studnia depresyjna">studnia depresyjna</option>
+                            <option value="zestawy igłofiltrowe">zestawy igłofiltrowe</option>
+                            <option value="pale Wiercone">pale Wiercone</option>
+                            <option value="pompy głębinowe">pompy głębinowe</option>
+                            <option value="siatka filtracyjna">siatka filtracyjna</option>
+                            <option value="wyposażenie studni">wyposażenie studni</option>
+                        </select>
+                    </div>
+                    <div class="form-row no-after">
+                        <div class="form-group col-6-2" style="width:100%">
+                            <h4>Uwagi do zlecenia <span>*</span></h4>
+                            <textarea class="form-control" placeholder="" name="comments" required>{{ task.comments }}</textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-secondary" href="{{ path('tasks') }}">Zamknij</a>
+                        <button type="submit" class="btn btn-primary">Edytuj zlecenie</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
