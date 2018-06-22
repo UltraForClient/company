@@ -6,9 +6,7 @@
         <tr>
             <th>#</th>
             <th>Miejscowość</th>
-            <th>Kod pocztowy</th>
-            <th>Ulica</th>
-            <th>Nr Domu</th>
+            <th>Rodzaj zlecenia</th>
             <th>Wyceniono</th>
             <th>Akcja</th>
         </tr>
@@ -18,12 +16,11 @@
             <tr {% if task.valuation %}class="table-success"{% endif %}>
                 <th scope="row">{{ key + 1 }}</th>
                 <td>{{ task.place }}</td>
-                <td>{{ task.postCode }}</td>
-                <td>{{ task.street }}</td>
-                <td>{{ task.houseNumber }}</td>
+                <td>{{ task.task }}</td>
                 <td>{% if task.valuation %} {{ task.valuation }}zł {% else %} Nie dokonano jeszcze wyceny {% endif %}</td>
                 <td>
                     {% if not task.valuation %}<a class="btn btn-success" href="{{ path('valuation', {id: task.id}) }}">Dokona wyceny</a>{% endif %}
+                    <a class="btn btn-default" href="{{ path('admin_task_one', {id: task.id}) }}">Pokaż szczegóły</a>
                     <a class="btn btn-default" href="{{ path('admin_user_one', {id: task.user.id}) }}">Pokaż użytkownika</a>
                     <a href="{{ path('remove_task', {id: task.id}) }}" class="btn btn-danger">Usuń</a>
                 </td>

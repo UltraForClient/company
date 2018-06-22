@@ -22,7 +22,7 @@ security:
                 login_path: login
                 check_path: login
                 csrf_token_generator: security.csrf.token_manager
-                default_target_path: task
+                default_target_path: tasks
             logout:
                 path: logout
                 target: form

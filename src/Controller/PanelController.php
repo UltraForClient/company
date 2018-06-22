@@ -37,9 +37,9 @@ class PanelController extends Controller
     }
 
     /**
-     * @Route("/panel", name="task")
+     * @Route("/panel", name="tasks")
      */
-    public function task(Request $request): Response
+    public function tasks(Request $request): Response
     {
         $user = $this->getUser();
 
@@ -62,14 +62,25 @@ class PanelController extends Controller
             $tasks = $this->em->getRepository(Task::class)->findByUserId($user->getId());
 
 
-            return $this->render('panel/task.html.twig', [
+            return $this->render('panel/tasks.html.twig', [
                 'tasks' => $tasks
             ]);
         }
 
 
-        return $this->render('panel/task.html.twig', [
+        return $this->render('panel/tasks.html.twig', [
             'tasks' => $tasks
+        ]);
+    }
+
+    /**
+     * @Route("/panel/task/{id}", name="task_one")
+     */
+    public function task(Task $task): Response
+    {
+        return $this->render('panel/task.html.twig', [
+            'task' => $task,
+            'tasks' => null
         ]);
     }
 

@@ -1,0 +1,115 @@
+{% extends 'panel/panel.html.twig' %}
+
+{% block content %}
+    <div class="m-portlet m-portlet--full-height m-portlet--tabs">
+        <div class="m-portlet__body">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_1">Dodaj nowe zlecenie</button>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Miejscowość</th>
+                    <th>Adres</th>
+                    <th>Rodzaj zlecenia</th>
+                    <th>Wyceniono</th>
+                    <th>Akcje</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for key, task in tasks %}
+                <tr>
+                    <th scope="row">{{ key + 1 }}</th>
+                    <td>{{ task.place }}</td>
+                    <td>{{ task.street }} {{ task.houseNumber }}</td>
+                    <td>{{ task.task }}</td>
+                    <td>{% if task.valuation %} {{ task.valuation }}zł {% else %} Nie dokonano jeszcze wyceny {% endif %}</td>
+                    <td>
+                        <a href="{{ path('task_one', {id: task.id}) }}" class="btn btn-default">Pokaż szczegóły</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="m_modal_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nowe zlecenie</h5>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                    <div class="header-form">
+                        <h5>Formularz zlecenia</h5>
+                    </div>
+                    <h3>Miejsce wykonania zlecenia</h3>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <h4>Ulica <span>*</span></h4>
+                                <input type="text" class="form-control" id="street" name="street" placeholder="ul. Przemysłowa" required>
+                            </div>
+                            <div class="form-group col-6">
+                                <h4>Nr domu <span>*</span></h4>
+                                <input type="text" class="form-control" id="houseNumber" name="houseNumber" placeholder="25" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <h4>Kod pocztowy <span>*</span></h4>
+                                <input type="text" class="form-control" id="postCode" name="postCode" placeholder="25-312" required>
+                            </div>
+                            <div class="form-group col-6">
+                                <h4>Miejscowość <span>*</span></h4>
+                                <input type="text" class="form-control" id="place" name="place" placeholder="Kielce" required>
+                            </div>
+                        </div>
+                        <h3>Informacje o zleceniu</h3>
+                        <div class="form-group">
+                            <h4>Rodzaj zlecenia <span>*</span></h4>
+                            <select class="form-control" name="task" required>
+                                <option value="" disabled selected>Wybierz rodzaj zlecenia</option>
+                                <option value="studnia głębinowa">studnia głębinowa</option>
+                                <option value="studnia depresyjna">studnia depresyjna</option>
+                                <option value="zestawy igłofiltrowe">zestawy igłofiltrowe</option>
+                                <option value="pale Wiercone">pale Wiercone</option>
+                                <option value="pompy głębinowe">pompy głębinowe</option>
+                                <option value="siatka filtracyjna">siatka filtracyjna</option>
+                                <option value="wyposażenie studni">wyposażenie studni</option>
+                            </select>
+                        </div>
+                        <div class="form-row no-after">
+                            <div class="form-group col-6-2" style="width:100%">
+                                <h4>Uwagi do zlecenia <span>*</span></h4>
+                                <textarea class="form-control" placeholder="" name="comments" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="close-modal">Zamknij</button>
+                            <button type="submit" class="btn btn-primary">Dodaj zlecenie</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('asset/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('asset/js/addons.js') }}"></script>
+    <script>
+        var button = document.querySelector('button[data-toggle="modal"]');
+        var closeModal = document.querySelector('#close-modal');
+        var modal = document.querySelector('#m_modal_1');
+        button.addEventListener('click', function(e) {
+            modal.classList.add('show');
+        });
+
+        closeModal.addEventListener('click', function() {
+            modal.classList.remove('show')
+        });
+    </script>
+{% endblock %}

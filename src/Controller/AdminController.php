@@ -61,6 +61,16 @@ class AdminController extends Controller
     }
 
     /**
+     * @Route("/admin/task/{id}", name="admin_task_one")
+     */
+    public function task(Task $task): Response
+    {
+        return $this->render('admin/task.html.twig', [
+            'task' => $task
+        ]);
+    }
+
+    /**
      * @Route("/admin/valuation/{id}", name="valuation")
      */
     public function valuation(Task $task, Request $request): Response
