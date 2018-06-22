@@ -52,6 +52,9 @@ class PanelController extends Controller
         if(count($req) > 0) {
             $task = new Task();
             $task->setUser($user);
+            if($request->files->get('task_imageFile')) {
+                $task->setImageFile($request->files->get('task_imageFile'));
+            }
 
             $form = $this->createForm(TaskType::class, $task);
             $form->submit($req);
@@ -92,10 +95,11 @@ class PanelController extends Controller
         $req = $request->request->all();
 
         if(count($req) > 0) {
+            $task->setImageFile($request->files->get('task_imageFile'));
+
             $formTask = $this->createForm(TaskType::class, $task);
 
             $formTask->submit($req);
-
 
             $task->setUser($this->getUser());
 

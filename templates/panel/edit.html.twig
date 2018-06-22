@@ -12,7 +12,7 @@
                         </h3>
                     </div>
                 </div>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <div class="header-form">
                         <h5>Formularz zlecenia</h5>
                     </div>
@@ -54,14 +54,14 @@
                     <div class="form-row no-after">
                         <div class="form-group col-2-2" style="width:100%">
                             <h4>Uwagi do zlecenia <span>*</span></h4>
-                            <textarea class="form-control" name="task_comments" placeholder="" required></textarea>
+                            <textarea class="form-control" name="comments" placeholder="" required>{{ task.comments }}</textarea>
                             <div class="form-bottom radio-btns">
                                 <div class="form-group">
                                     <object data="data:image/svg+xml;base64,{{ asset('asset/folder.svg') }}" type="image/svg+xml"></object>
                                     <p class="file-load--">Dodaj plik np: mapka działki (JPG,PDF)</p>
                                 </div>
 
-                                <input type="file" name="imageFile" class="form-control-file">
+                                <input type="file" name="task_imageFile" class="form-control-file">
                             </div>
                         </div>
                     </div>

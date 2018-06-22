@@ -52,6 +52,16 @@
                         <p class="form-control m-input" style="height: 100%;">{{ task.comments }}</p>
                     </div>
                 </div>
+                {% if task.image %}
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Dołączony plik:
+                        </label>
+                        <div class="col-7">
+                            <a href="{{ vich_uploader_asset(task, 'imageFile') }}" target="_blank">Pokaż plik</a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
