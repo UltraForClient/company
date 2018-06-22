@@ -58,6 +58,13 @@ class PanelController extends Controller
 
             $this->em->persist($task);
             $this->em->flush();
+
+            $tasks = $this->em->getRepository(Task::class)->findByUserId($user->getId());
+
+
+            return $this->render('panel/task.html.twig', [
+                'tasks' => $tasks
+            ]);
         }
 
 

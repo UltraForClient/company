@@ -52,8 +52,8 @@ class HomeController extends Controller
         if(isset($req['mode'])) {
             $data = $this->matchDataForm($req);
 
-            $user = $em->getRepository(User::class)->findOneBy(['email' => $data['user']['email']]);
-
+//            if($user = $em->getRepository(User::class)->findOneBy(['email' => $data['user']['email']]))
+            dump($req);
             $user = new User();
             $task = new Task();
 

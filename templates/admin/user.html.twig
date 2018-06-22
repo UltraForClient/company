@@ -1,0 +1,96 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <div class="tab-content">
+        <div class="tab-pane active" id="m_user_profile_tab_1">
+            <div class="m-form m-form--fit m-form--label-align-right">
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group row">
+                        <div class="col-10 ml-auto">
+                            <h3 class="m-form__section">
+                                Dane osobiste
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Imię i nazwisko:
+                        </label>
+                        <div class="col-7">
+                            <p class="form-control m-input">{{ user.name }} {{ user.surname }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Telefon:
+                        </label>
+                        <div class="col-7">
+                            <p class="form-control m-input">{{ user.phone }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Kod pocztowe:
+                        </label>
+                        <div class="col-7">
+                            <p class="form-control m-input">{{ user.postCode }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Miejscowość:
+                        </label>
+                        <div class="col-7">
+                            <p class="form-control m-input">{{ user.place }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Ulica:
+                        </label>
+                        <div class="col-7">
+                            <p class="form-control m-input">{{ user.street }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label for="example-text-input" class="col-2 col-form-label">
+                            Numer domu:
+                        </label>
+                        <div class="col-7">
+                            <p class="form-control m-input">{{ user.houseNumber }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Miejscowość</th>
+            <th>Kod pocztowy</th>
+            <th>Ulica</th>
+            <th>Nr Domu</th>
+            <th>Wyceniono</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, task in tasks %}
+            <tr {% if task.valuation %}class="table-success"{% endif %}>
+                <th scope="row">{{ key + 1 }}</th>
+                <td>{{ task.place }}</td>
+                <td>{{ task.postCode }}</td>
+                <td>{{ task.street }}</td>
+                <td>{{ task.houseNumber }}</td>
+                <td>{% if task.valuation %} {{ task.valuation }}zł {% else %} Nie dokonano jeszcze wyceny {% endif %}</td>
+                <td>
+                    {% if not task.valuation %}<a class="btn btn-success" href="{{ path('valuation', {id: task.id}) }}">Dokona wyceny</a>{% endif %}
+                    <a href="{{ path('remove_task', {id: task.id}) }}" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

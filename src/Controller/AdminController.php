@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,6 +29,31 @@ class AdminController extends Controller
         $tasks = $this->em->getRepository(Task::class)->findAll();
 
         return $this->render('admin/index.html.twig', [
+            'tasks' => $tasks
+        ]);
+    }
+
+    /**
+     * @Route("/admin/users", name="admin_user")
+     */
+    public function users(): Response
+    {
+        $users = $this->em->getRepository(User::class)->findAll();
+        array_shift($users);
+        return $this->render('admin/listClient.html.twig', [
+            'users' => $users
+        ]);
+    }
+
+    /**
+     * @Route("/admin/user/{id}", name="admin_user_one")
+     */
+    public function user(User $user): Response
+    {
+        $tasks = $this->em->getRepository(Task::class)->findByUserId($user->getId());
+
+        return $this->render('admin/user.html.twig', [
+            'user' => $user,
             'tasks' => $tasks
         ]);
     }
@@ -60,6 +86,17 @@ class AdminController extends Controller
     public function removeTask(Task $task): Response
     {
         $task->setDeletedAt(new \DateTime());
+        $this->em->flush();
+
+        return $this->redirectToRoute('admin');
+    }
+
+    /**
+     * @Route("admin/delete/user/{id}", name="remove_user")
+     */
+    public function removeUser(User $user): Response
+    {
+        $user->setDeletedAt(new \DateTime());
         $this->em->flush();
 
         return $this->redirectToRoute('admin');

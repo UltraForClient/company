@@ -23,8 +23,8 @@
                 <td>{{ task.houseNumber }}</td>
                 <td>{% if task.valuation %} {{ task.valuation }}zł {% else %} Nie dokonano jeszcze wyceny {% endif %}</td>
                 <td>
-                    {% if not task.valuation %}<a class="btn btn-success" href="{{ path('valuation', {id: task.user.id}) }}">Dokona wyceny</a>{% endif %}
-                    <a class="btn btn-default">Pokaż użytkownika</a>
+                    {% if not task.valuation %}<a class="btn btn-success" href="{{ path('valuation', {id: task.id}) }}">Dokona wyceny</a>{% endif %}
+                    <a class="btn btn-default" href="{{ path('admin_user_one', {id: task.user.id}) }}">Pokaż użytkownika</a>
                     <a href="{{ path('remove_task', {id: task.id}) }}" class="btn btn-danger">Usuń</a>
                 </td>
             </tr>

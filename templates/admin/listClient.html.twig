@@ -1,5 +1,31 @@
 {% extends 'admin/layout.html.twig' %}
 
 {% block content %}
-
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Imię / Nazwa</th>
+            <th>Nazwisko / Nip</th>
+            <th>Adres</th>
+            <th>Email</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, user in users %}
+            <tr {% if user.companyName %}class="table-secondary"{% else %}class="table-light"{% endif %}>
+                <th scope="row">{{ key + 1 }}</th>
+                <td>{% if user.companyName %}{{ user.companyName }}{% else %}{{ user.name }}{% endif %}</td>
+                <td>{% if user.NIP %}{{ user.NIP }}{% else %}{{ user.surname }}{% endif %}</td>
+                <td>{{ user.postCode }} {{ user.place }} {{ user.street }} {{ user.houseNumber }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('admin_user_one', {id: user.id}) }}">Pokaż użytkownika</a>
+                    <a href="{{ path('remove_user', {id: user.id}) }}" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
