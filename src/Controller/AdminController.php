@@ -9,14 +9,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AdminController extends Controller
 {
+    private $passwordEncoder;
     private $em;
     private $mailer;
 
-    public function __construct(EntityManagerInterface $em, \Swift_Mailer $mailer)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em, \Swift_Mailer $mailer)
     {
+        $this->passwordEncoder = $passwordEncoder;
         $this->em = $em;
         $this->mailer = $mailer;
     }
@@ -100,6 +102,34 @@ class AdminController extends Controller
         $this->em->flush();
 
         return $this->redirectToRoute('admin');
+    }
+
+    /**
+     * @Route("admin/change-password", name="change_password_admin")
+     */
+    public function changePassword(Request $request): Response
+    {
+        $password = $request->request->get('password');
+        $rePassword = $request->request->get('rePassword');
+        $error = false;
+        if($password !== $rePassword) {
+            $error = true;
+        }
+
+        if($password && !$error) {
+            $user = $this->getUser();
+
+            $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
+
+            $this->em->flush();
+
+            return $this->redirectToRoute('admin');
+        }
+
+        return $this->render('admin/changePassword.html.twig', [
+            'tasks' => false,
+            'error' => $error
+        ]);
     }
 
     private function sendMail(string $email, array $param): void

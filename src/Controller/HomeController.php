@@ -52,9 +52,15 @@ class HomeController extends Controller
         if(isset($req['mode'])) {
             $data = $this->matchDataForm($req);
 
-//            if($user = $em->getRepository(User::class)->findOneBy(['email' => $data['user']['email']]))
-            dump($req);
-            $user = new User();
+
+            $newUser = false;
+
+            if(!$user = $em->getRepository(User::class)->findOneBy(['email' => $data['user']['email']])) {
+                $user = new User();
+                $newUser = true;
+            }
+
+
             $task = new Task();
 
             $formUser = $this->createForm(UserType::class, $user);
@@ -63,8 +69,12 @@ class HomeController extends Controller
             $formUser->submit($data['user']);
             $formTask->submit($data['task']);
 
-            $password = $this->passwordGenerator->generate();
-            $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
+            if($newUser) {
+                $password = $this->passwordGenerator->generate();
+                $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
+
+                //$this->sendMail($data['user']['email'], $password);
+            }
 
 
             $task->setUser($user);
@@ -74,7 +84,6 @@ class HomeController extends Controller
 
             $em->flush();
 
-            //$this->sendMail($data['user']['email'], $password);
 
             return $this->redirectToRoute('form_summary', [
                 'email' => $data['user']['email']

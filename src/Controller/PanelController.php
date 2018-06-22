@@ -83,17 +83,27 @@ class PanelController extends Controller
         }
 
         $password = $request->request->get('password');
+        $rePassword = $request->request->get('rePassword');
 
-        if($password) {
+        $error = false;
+
+        if($password !== $rePassword) {
+            $error = true;
+        }
+
+        if($password && !$error) {
             $user = $this->getUser();
 
             $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
 
             $this->em->flush();
+
+            return $this->redirectToRoute('panel');
         }
 
         return $this->render('panel/changePassword.html.twig', [
-            'tasks' => false
+            'tasks' => false,
+            'error' => $error
         ]);
     }
 }
