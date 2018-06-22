@@ -12,7 +12,7 @@
     <div class="subsite-wrapp">
         <div class="container">
             <div class="contract-form private">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <div class="header-form">
                         <h5>Wypełnij formularz zlecenia jako...</h5>
                         <div class="checkboxes">
@@ -113,7 +113,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-2-2">
                                 <h3>Informacje o zleceniu</h3>
@@ -136,29 +135,35 @@
                             <div class="form-group col-2-2" style="width:100%">
                                 <h4>Uwagi do zlecenia <span>*</span></h4>
                                 <textarea class="form-control" name="task_comments" placeholder="" required></textarea>
+                                <div class="form-bottom radio-btns">
+                                    <div class="form-group">
+                                        <object data="data:image/svg+xml;base64,{{ asset('asset/folder.svg') }}" type="image/svg+xml"></object>
+                                        <p class="file-load--">Dodaj plik np: mapka działki (JPG,PDF)</p>
+                                    </div>
+
+                                    <input type="file" name="task_imageFile" id="task_imageFile" class="form-control-file">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    {#<div class="form-bottom radio-btns">#}
-                        {#<div>#}
-                            {#<div class="checkbox">#}
-                                {#<input id="checkbox3" type="checkbox" name="radioInline3">#}
-                                {#<label for="checkbox3"> Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz#}
-                                    {#w przemyśle poligraficznym. </label>#}
-                            {#</div>#}
-                            {#<div class="checkbox">#}
-                                {#<input id="checkbox4" type="checkbox" name="radioInline4">#}
-                                {#<label for="checkbox4"> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza#}
-                                    {#do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany#}
-                                    {#przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w#}
-                                    {#latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem#}
-                                    {#Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem#}
-                                    {#przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus#}
-                                    {#PageMaker</label>#}
-                            {#</div>#}
-                        {#</div>#}
-
-                    {#</div>#}
+                    <div class="form-bottom radio-btns">
+                        <div>
+                            <div class="checkbox">
+                                <input id="checkbox3" type="checkbox" name="radioInline3">
+                                <label for="checkbox3"> Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. </label>
+                            </div>
+                            <div class="checkbox">
+                                <input id="checkbox4" type="checkbox" name="radioInline4">
+                                <label for="checkbox4"> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza
+                                    do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany
+                                    przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w
+                                    latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem
+                                    Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem
+                                    przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus
+                                    PageMaker</label>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-bottom">
                         <div>

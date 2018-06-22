@@ -52,9 +52,17 @@
                         </select>
                     </div>
                     <div class="form-row no-after">
-                        <div class="form-group col-6-2" style="width:100%">
+                        <div class="form-group col-2-2" style="width:100%">
                             <h4>Uwagi do zlecenia <span>*</span></h4>
-                            <textarea class="form-control" placeholder="" name="comments" required>{{ task.comments }}</textarea>
+                            <textarea class="form-control" name="task_comments" placeholder="" required></textarea>
+                            <div class="form-bottom radio-btns">
+                                <div class="form-group">
+                                    <object data="data:image/svg+xml;base64,{{ asset('asset/folder.svg') }}" type="image/svg+xml"></object>
+                                    <p class="file-load--">Dodaj plik np: mapka działki (JPG,PDF)</p>
+                                </div>
+
+                                <input type="file" name="imageFile" class="form-control-file">
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

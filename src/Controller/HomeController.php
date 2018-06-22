@@ -49,9 +49,8 @@ class HomeController extends Controller
         $req = $request->request->all();
         $em = $this->getDoctrine()->getManager();
 
-        if(isset($req['mode'])) {
+        if(count($req) > 0) {
             $data = $this->matchDataForm($req);
-
 
             $newUser = false;
 
@@ -60,11 +59,12 @@ class HomeController extends Controller
                 $newUser = true;
             }
 
-
             $task = new Task();
+            $task->setImageFile($request->files->get('task_imageFile'));
 
             $formUser = $this->createForm(UserType::class, $user);
             $formTask = $this->createForm(TaskType::class, $task);
+
 
             $formUser->submit($data['user']);
             $formTask->submit($data['task']);

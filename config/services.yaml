@@ -1,6 +1,6 @@
 parameters:
     locale: 'pl'
-
+    app.path.images: '/uploads/images'
 services:
     _defaults:
         autowire: true
