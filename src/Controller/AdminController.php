@@ -109,6 +109,12 @@ class AdminController extends Controller
     public function removeUser(User $user): Response
     {
         $user->setDeletedAt(new \DateTime());
+        $tasks = $this->em->getRepository(Task::class)->findByUserId($user->getId());
+        foreach($tasks as $task) {
+            $task = $this->em->getRepository(Task::class)->find($task['id']);
+            $task->setDeletedAt(new \DateTime());
+        }
+
         $this->em->flush();
 
         return $this->redirectToRoute('admin');
