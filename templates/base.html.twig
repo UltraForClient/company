@@ -1,46 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
 
-        <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
-        {% block css %}
+    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/top.css') }}">
+    {% block css %}
 
-        {% endblock %}
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </head>
-    <body style="font-family: Arial!important" class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
-        <div class="m-grid m-grid--hor m-grid--root m-page">
-        {% block nav %}
-            <header>
-                <nav>
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a href="{{ path('form') }}" class="nav-link">Formularz</a>
-                        </li>
-                        {% if not app.user %}
-                        <li class="nav-item">
-                            <a href="{{ path('login') }}" class="nav-link">Zaloguj się</a>
-                        </li>
-                        {% elseif is_granted('ROLE_ADMIN') %}
-                        <li class="nav-item">
-                            <a href="{{ path('admin') }}" class="nav-link">Panel admina</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a href="{{ path('tasks') }}" class="nav-link">Panel klienta</a>
-                        </li>
-                        {% endif %}
-
-                    </ul>
-                </nav>
-            </header>
-        {% endblock %}
-        {% block body %}{% endblock %}
+    {% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body style="font-family: Arial!important" class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <header class="container top-container">
+        <div id="top">
+            <a href="http://zws.com.pl"><img src="{{ asset('asset/top.jpg') }}"></a>
         </div>
-        {% block js %}
-        {% endblock %}
-    </body>
+        <div class="menu_system">
+            <a href="http://zws.com.pl">Strona główna</a>
+            <a href="{{ path('policy') }}">Polityka prywatności</a>
+            {% if not app.user %}
+                <a href="{{ path('login') }}">Logowanie</a>
+            {% elseif is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('admin') }}">Panel admina</a>
+            {% else %}
+                <a href="{{ path('tasks') }}">Panel klienta</a>
+            {% endif %}
+
+            {% if app.user %}
+                <a href="{{ path('logout') }}">Wyloguj się</a>
+            {% endif %}
+        </div>
+        <a class="form_zlecenia" href="{{ path('form') }}">Formualarz zalecenia</a>
+    </header>
+    {% block body %}{% endblock %}
+</div>
+{% block js %}
+{% endblock %}
+</body>
 </html>

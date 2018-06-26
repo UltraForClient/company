@@ -60,7 +60,10 @@ class HomeController extends Controller
             }
 
             $task = new Task();
-            $task->setImageFile($request->files->get('task_imageFile'));
+            dump($request->files->get('task_imageFile'));
+            if($request->files->get('task_imageFile')) {
+                $task->setImageFile($request->files->get('task_imageFile'));
+            }
 
             $formUser = $this->createForm(UserType::class, $user);
             $formTask = $this->createForm(TaskType::class, $task);
@@ -73,10 +76,9 @@ class HomeController extends Controller
                 $password = $this->passwordGenerator->generate();
                 $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
 
-                $this->sendMail($data['user']['email'], $password, 'email.html.twig');
+//                $this->sendMail($data['user']['email'], $password, 'email.html.twig');
             } else {
-                $this->sendMail($data['user']['email'], '', 'email2.html.twig');
-
+//                $this->sendMail($data['user']['email'], '', 'email2.html.twig');
             }
 
 
@@ -95,6 +97,15 @@ class HomeController extends Controller
 
         return $this->render('form/form.html.twig', [
 
+        ]);
+    }
+
+    /**
+     * @Route("/polityka-prywatnosci", name="policy")
+     */
+    public function policy(): Response
+    {
+        return $this->render('home/policy.html.twig', [
         ]);
     }
 

@@ -1,0 +1,34 @@
+.top-container {
+    text-align: center;
+}
+
+#top {
+    text-align: center;
+}
+.menu_system {
+    background: #fafafa;
+    border-radius: 3px;
+    padding: 16px 0px;
+    margin: 0;
+    width: 64%;
+    display: inline-block;
+    text-align:right;
+    opacity:0.7;
+}
+.menu_system a{color:#333; margin-right:30px;}
+.menu_system a:hover{text-decoration:underline; color:#0566a9;}
+.form_zlecenia{
+    background: #0d8ae2;
+    color:#fff;
+    font-size:17px;
+    border-radius: 3px;
+    padding: 9px 0 12px 0;
+    margin: 0;
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+}
+.form_zlecenia:hover{
+    background:#159dfc;
+    color:#fff;
+}

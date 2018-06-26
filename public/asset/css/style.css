@@ -10,11 +10,11 @@
 .contract-form  a.btn.green:hover, a.btn.green:focus{background:#0aa314;color:#fff;}
 
 .contract-form select::-ms-expand {
-    display: none;
+	display: none;
 }
 .contract-form  .form-control{font-family:'Roboto';color:#636363; font-size:16px; line-height:14px; font-weight:400 !important; height:54px;border:1px solid #e8e8e8; -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
--moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0); background:#f9f9f9; padding:6px 16px;}
+	-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0); background:#f9f9f9; padding:6px 16px;}
 .contract-form  .form-control:focus{box-shadow:none;}
 .contract-form  .form-group{margin-bottom:10px;}
 .contract-form  textarea.form-control{padding:16px; height:182px;}
@@ -24,33 +24,33 @@ box-shadow: 0px 0px 0px 0px rgba(0,0,0,0); background:#f9f9f9; padding:6px 16px;
 .contract-form  .form-group-x2:after{content:''; clear:both; display:block;}
 .contract-form  .form-group-x2 .form-group{width:50%; display:inline-block; float:left; padding:0 10px;}
 .contract-form  button{float:right;}
-.contract-form  button:hover{cursor:pointer;background:#037ded;} 
+.contract-form  button:hover{cursor:pointer;background:#037ded;}
 
 /*input error*/
 .contract-form .form-group{ position:relative;}
 .contract-form .form-group input.error, .contract-form .form-group_btns input.error, .contract-form .form-group_half input.error{border:1px solid #cf1e33;}
 .contract-form .form-group label.error, .contract-form .form-group_btns label.error, .contract-form .form-group_half label.error{font-size:14px; line-height:14px; color:#fff; margin:0px; font-weight:300; padding:15px 20px; display:inline-block; position:absolute; top:-15px;background:#cf1e33; right:0;  z-index:998; border-radius: 4px; -webkit-border-radius: 4px;    -moz-border-radius:4px;}
 .contract-form .form-group label.error:after, .contract-form .form-group_btns label.error:after, .contract-form .form-group_half label.error:after{display:block; content:''; position:absolute; left:15px; top:100%; width: 0;
-height: 0;
-border-style: solid;
-border-width: 5px 4.5px 0 4.5px;
-border-color: #cf1e33 transparent transparent transparent;
+	height: 0;
+	border-style: solid;
+	border-width: 5px 4.5px 0 4.5px;
+	border-color: #cf1e33 transparent transparent transparent;
 }
 
 .contract-form ::-webkit-input-placeholder {
-   color: #000; font-weight:400;
+	color: #000; font-weight:400;
 }
 
 .contract-form :-moz-placeholder { /* Firefox 18- */
-   color: #000;  font-weight:400;
+	color: #000;  font-weight:400;
 }
 
 .contract-form ::-moz-placeholder {  /* Firefox 19+ */
-   color: #000;  font-weight:400;
+	color: #000;  font-weight:400;
 }
 
-.contract-form :-ms-input-placeholder {  
-   color: #000;  font-weight:400;
+.contract-form :-ms-input-placeholder {
+	color: #000;  font-weight:400;
 }
 
 /************************************************************************ Formularz zlecenia */
@@ -65,7 +65,7 @@ border-color: #cf1e33 transparent transparent transparent;
 .contract-form h4{text-transform:uppercase; color:#666666; font-size:14px; font-weight:500; margin: 0 0 7px;}
 .contract-form h4 span{color:#ca0808; font-weight:900;}
 .contract-form .form-control, .contract-form .form-control option{height:48px; color:#363637; font-size:16px; font-weight:700; border:1px solid #b7babf;  background:#fff; padding:6px 12px;}
- .contract-form .form-control option{border:none; border-bottom:1px solid #d2d2d4;}
+.contract-form .form-control option{border:none; border-bottom:1px solid #d2d2d4;}
 .contract-form .form-group{margin: 0 0 21px;}
 .contract-form .col-2{padding: 0 10px;}
 .contract-form .row{margin: 0 -10px;}
@@ -114,14 +114,14 @@ border-color: #cf1e33 transparent transparent transparent;
 	background:#fd6604;
 	left:3px;
 	top:3px;
-height:11px;
-width:11px;
+	height:11px;
+	width:11px;
 	text-indent:-999em;
 
 	-webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    -ms-border-radius: 1px;
-    border-radius: 1px;
+	-moz-border-radius: 1px;
+	-ms-border-radius: 1px;
+	border-radius: 1px;
 }
 .form-bottom.radio-btns .radio label{font-size:13px; line-heigth:16px;}
 .form-bottom.radio-btns p.file-load--{
@@ -133,8 +133,8 @@ width:11px;
 	margin: 0 ;
 }
 .form-bottom.radio-btns{border:none;
-padding: 0 ; 
-margin: 0 ;}
+	padding: 0 ;
+	margin: 0 ;}
 /************************************************************************ Formularz zlecenia podsumowanie */
 .summary-content-wrapper{padding: 60px 0;}
 .summary-bottom{border-top:1px solid #d2d2d4; padding:30px 0 0 ; overflow:hidden;}
@@ -165,7 +165,7 @@ margin: 0 ;}
 	.contract-form h3{font-size:20px; margin: 0 0 20px;}
 	.contract-form h5{font-size:30px;}
 	.contract-form .header-form .checkboxes .radio.radio-inline{margin-left:20px;}
-	
+
 	/************************************************************************ Formularz zlecenia podsumowanie */
 	.summary-content-wrapper{padding: 40px 0 40px;}
 	.summary-content p{font-size:17px; margin: 0 0 20px;}
@@ -184,7 +184,7 @@ margin: 0 ;}
 	.contract-form .form-control.w260{width:130px;}
 	.contract-form .form-group p{font-size:14px;}
 	.contract-form .form-row{margin: 0 0 30px;}
-	
+
 	/************************************************************************ Formularz zlecenia podsumowanie */
 	.summary-content-wrapper{padding: 30px 0 30px;}
 	.summary-content p{font-size:16px; margin: 0 0 15px; line-height:22px;}
@@ -210,16 +210,15 @@ margin: 0 ;}
 	.form-bottom.radio-btns p.file-load--{font-size:14px;}
 	.contract-form .form-group.col-2, .contract-form .form-group.col-2-2{width:100%;}
 	.contract-form .form-row.no-after{margin:-15px 0 0 ;}
-	
+
 	/************************************************************************ Formularz zlecenia podsumowanie */
 	.summary-content p{font-size:14px; margin: 0 0 9px; line-height:20px;}
 	.summary-content div.row{margin: 0 0 30px}
-.summary-content .col-2{width:50%;}
+	.summary-content .col-2{width:50%;}
 	.summary-content p.right{text-align:left;width:100%;
-	padding:0;}
-	
+		padding:0;}
+
 }
 @media (max-width:600px){
-.summary-content .col-2{width:100%;}
+	.summary-content .col-2{width:100%;}
 }
-

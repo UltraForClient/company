@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/awesome-bootstrap-checkbox.css') }}">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-{% endblock %}
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>{% endblock %}
 
 {% block body %}
     <div class="subsite-wrapp">
@@ -150,17 +149,15 @@
                         <div>
                             <div class="checkbox">
                                 <input id="checkbox3" type="checkbox" name="radioInline3" required>
-                                <label for="checkbox3"> Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. </label>
+                                <label for="checkbox3">
+                                    Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu przez Zakład Wierceń Studziennych Jerzy Wilman dla potrzeb niezbędnych dla realizacji procesu zamówienia. Rozumiem, że w każdej chwili mogę odwołać zgodę. Dane te będą przetwarzane zgodnie z zapisami Polityki prywatności. Administratorem moich danych osobowych będzie Zakład Wierceń Studziennych Jerzy Wilman 25-139 Kielce, ul. Chodkiewicza 111, email: jwilman@op.pl twilman@interia.pl.
+                                </label>
                             </div>
                             <div class="checkbox">
                                 <input id="checkbox4" type="checkbox" name="radioInline4" required>
-                                <label for="checkbox4"> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza
-                                    do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany
-                                    przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w
-                                    latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem
-                                    Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem
-                                    przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus
-                                    PageMaker</label>
+                                <label for="checkbox4">
+                                    Zapoznałem się z informacjami o przetwarzaniu danych osobowych znajdują się w <a href="{{ path('policy') }}"> Polityce prywatności.</a>
+                                </label>
                             </div>
                         </div>
                     </div>
