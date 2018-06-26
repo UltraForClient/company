@@ -80,7 +80,7 @@ class AdminController extends Controller
         if(count($req) > 0) {
             $task->setValuation($req['price']);
 
-//            $this->sendMail($task->getUser()->getEmail(), $req);
+            $this->sendMail($task->getUser()->getEmail(), $req);
 
             $this->em->flush();
 

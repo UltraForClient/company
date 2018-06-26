@@ -15,11 +15,13 @@ class PanelController extends Controller
 {
     private $passwordEncoder;
     private $em;
+    private $mailer;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $em, \Swift_Mailer $mailer)
     {
         $this->passwordEncoder = $passwordEncoder;
         $this->em = $em;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -64,6 +66,7 @@ class PanelController extends Controller
 
             $tasks = $this->em->getRepository(Task::class)->findByUserId($user->getId());
 
+            $this->sendMail($user->getEmail(), '', 'email2.html.twig');
 
             return $this->render('panel/tasks.html.twig', [
                 'tasks' => $tasks
@@ -150,5 +153,21 @@ class PanelController extends Controller
             'tasks' => false,
             'error' => $error
         ]);
+    }
+
+    private function sendMail(string $email, string $password, string $template): void
+    {
+        $message = (new \Swift_Message('Zakład wiercenia Studziennych'))
+            ->setFrom(getenv('MAILER_URL'))
+            ->setTo($email)
+            ->setBody(
+                $this->renderView($template, [
+                    'email' => $email,
+                    'password' => $password
+                ]),
+                'text/html'
+            );
+
+        $this->mailer->send($message);
     }
 }

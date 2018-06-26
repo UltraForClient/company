@@ -73,7 +73,10 @@ class HomeController extends Controller
                 $password = $this->passwordGenerator->generate();
                 $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
 
-                //$this->sendMail($data['user']['email'], $password);
+                $this->sendMail($data['user']['email'], $password, 'email.html.twig');
+            } else {
+                $this->sendMail($data['user']['email'], '', 'email2.html.twig');
+
             }
 
 
@@ -116,13 +119,13 @@ class HomeController extends Controller
         ]);
     }
 
-    private function sendMail(string $email, string $password): void
+    private function sendMail(string $email, string $password, string $template): void
     {
         $message = (new \Swift_Message('Zakład wiercenia Studziennych'))
             ->setFrom(getenv('MAILER_URL'))
             ->setTo($email)
             ->setBody(
-                $this->renderView('email/email.html.twig', [
+                $this->renderView($template, [
                     'email' => $email,
                     'password' => $password
                 ]),
